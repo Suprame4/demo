@@ -18,5 +18,17 @@ fun main(args: Array<String>) {
 @RestController
 class MessageController {
 	@GetMapping("/")
-	fun index(@RequestParam("name") name: String) = "Hello, $name!"
+	fun index() = listOf(
+		Message("1", "hello!"),
+		Message("2", "Bonjour!"),
+		Message("3", "Privet!"),
+	)
 }
+/*
+A data class is a special type of class that is used to hold data - It provides several useful features for
+managing immutable data
+ */
+data class Message(
+	val id: String?,
+	val text: String
+)
